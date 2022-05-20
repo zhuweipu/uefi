@@ -62,7 +62,7 @@ the extra build dependencies required to build EmulatorPkg,
 sudo apt install libx11-dev libxext-dev
 ```
 
-For building IA32 on X64 Ubuntu 22.04 LTS, some X86 libs are needed.
+For building IA32 on X64 Ubuntu 22.04 LTS, some X86 libs are needed [provided by Platform CI](https://github.com/tianocore/edk2/blob/master/EmulatorPkg/PlatformCI/ReadMe.md).
 
 ```bash
 sudo dpkg --add-architecture i386
@@ -70,6 +70,5 @@ sudo apt update
 
 sudo apt install libc6-dev:i386 lib32gcc-7-dev libx11-dev:i386 libxext-dev:i386 
 # or sudo apt install gcc-multilib libx11-dev:i386 libxext-dev:i386
-
 ```
 

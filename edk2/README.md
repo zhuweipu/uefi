@@ -72,3 +72,48 @@ sudo apt install libc6-dev:i386 lib32gcc-7-dev libx11-dev:i386 libxext-dev:i386
 # or sudo apt install gcc-multilib libx11-dev:i386 libxext-dev:i386
 ```
 
+```bash
+EmulatorPkg/build.sh
+EmulatorPkg/build.sh run
+```
+
+
+32 bits 
+```bash
+EmulatorPkg/build.sh -a IA32
+EmulatorPkg/build.sh -a IA32 run
+```
+### 编译问题
+
+1. fatal error: X11/Xlib.h: No such file or directory
+
+```bash
+sudo apt install libx11-dev
+```
+
+2. fatal error: X11/extensions/XShm.h: No such file or directory
+
+```bash
+sudo apt install libxext-dev
+```
+
+3. 32 bits emulator bits/libc-header-start.h: No such file or directory
+
+```bash 
+sudo apt-get install gcc-multilib    
+```    
+
+4. 32 bits emulator
+/usr/bin/ld: skipping incompatible /usr/lib/x86_64-linux-gnu/libXext.so when searching for -lXext    
+/usr/bin/ld: cannot find -lXext: No such file or directory    
+/usr/bin/ld: skipping incompatible /usr/lib/x86_64-linux-gnu/libX11.so when searching for -lX11    
+/usr/bin/ld: cannot find -lX11: No such file or directory    
+collect2: error: ld returned 1 exit status
+
+```bash
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt-get install libx11-dev:i386
+sudo apt install libxext-dev:i386
+```
+
